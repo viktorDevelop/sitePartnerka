@@ -1,6 +1,7 @@
 <?
 namespace app\controllers;
 use app\controllers\FrontController;
+defined('_access') or exit;
 
 /**
  * 
@@ -9,7 +10,7 @@ class ArticleController extends FrontController
 {
 	
 	 
-//http://site.ru/
+//http://site.ru/article/ выводит список всех статей с пагинацией
 	public function actionIndex($value='')
 	{
 		# code...
