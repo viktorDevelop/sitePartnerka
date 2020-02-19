@@ -1,6 +1,7 @@
 <?
 namespace app\controllers;
 use app\controllers\FrontController;
+defined('_access') or exit;
 
 /**
  * 
@@ -9,15 +10,16 @@ class CategoryController extends FrontController
 {
 	
 	 
-//http://site.ru/
+//http://site.ru/  //http://site.ru/category/    выводит список всех категорий с пагинацией
+
 	public function actionIndex($value='')
 	{
-		# code...
+		 
 	}
 //http://site.ru/category/php
 	public function actionListArticle($value='')
 	{
-		# code...
+		 
 	}
 
 //http://site.ru/admin/category/php
