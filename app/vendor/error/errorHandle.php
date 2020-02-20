@@ -31,19 +31,19 @@ class errorHandle
 	{
 		http_response_code($response);
 		if ($response == 404 ) {
-			 require '/views/error404.html';
+			 require 'views/error404.html';
 			 die;
 		}
 
 		if ($response == 403 ) {
-			 require '/views/error403.html';
+			 require 'views/error403.html';
 			 die;
 		}
 		if (DEBUG) {
-		 	require '/views/dev.php';
+		 	require 'views/dev.php';
 		}
 		else{
-			require '/view/prod.php';
+			require 'view/prod.php';
 		}
 	}
 
