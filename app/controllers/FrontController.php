@@ -12,7 +12,7 @@ class FrontController
 	public $classLoad;
 	public $view;
 	public $routeParam;
-	function __construct()
+	function __construct($routeParam)
 	{
 		 $this->classLoad = loader::getInstance();
 		 $this->view = view::getInstance();
@@ -23,11 +23,11 @@ class FrontController
 	 public function template($layouts,$subView = '')
 		 {
 		 	 
-			$path = (empty($subView)) ? $layouts.'/'.$layouts.'View' : $subView.'/'.$layouts.'View';
+			// echo $path = (empty($subView)) ? $layouts.'/'.$layouts.'View' : $subView.'/'.$layouts.'View';
 		 
-		 	$this->view->TopMenu = $categoryMod->getMenu(1); 
-		 	$this->view->asideMenu = $categoryMod->getMenu(0);
-	 	   $this->view->view = $this->view->render($path);
+		 	// $this->view->TopMenu = $categoryMod->getMenu(1); 
+		 	// $this->view->asideMenu = $categoryMod->getMenu(0);
+	 	   // $this->view->view = $this->view->render($path);
 	 	  	$this->view->load('index');
 	 	  	 
 		 }

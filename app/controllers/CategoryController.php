@@ -14,7 +14,7 @@ class CategoryController extends FrontController
 
 	public function actionIndex($value='')
 	{
-		 
+		 $this->template('blog','index');
 	}
 //http://site.ru/category/php
 	public function actionListArticle($value='')
@@ -23,10 +23,10 @@ class CategoryController extends FrontController
 	}
 
 //http://site.ru/admin/category/php
-	public function actionListArticle($value='')
-	{
-		# code...
-	}
+	// public function actionListArticle($value='')
+	// {
+	// 	# code...
+	// }
 
 //http://site.ru/admin/category/add
 
