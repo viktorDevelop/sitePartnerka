@@ -44,7 +44,7 @@ class View {
 
 	 	 ob_start();
 
-	 	 include ROOT."/app/views/".$template.'.php';
+	 	 include ROOT."/app/views/".$template.'index.php';
 	 	 $content = ob_get_contents();
 
 	 		ob_end_clean();
