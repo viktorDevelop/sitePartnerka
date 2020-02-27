@@ -35,7 +35,7 @@ class View {
 	 	 $this->data[$k]=$v;
 	 }
 
-	 public function render($template)
+	  public function render($template)
 	 {
 	 	 foreach ($this->data as $key => $value) {
 	 	 	 
@@ -44,13 +44,18 @@ class View {
 
 	 	 ob_start();
 
-	 	 include ROOT."/app/views/".$template.'index.php';
+	 	 include ROOT."/app/view/templates/".$template.'.php';
 	 	 $content = ob_get_contents();
 
 	 		ob_end_clean();
 
 	 		return $content;
 	 }
+
+	  public function loadComponents($template)
+		 {
+		 	 echo $this->render('/blog/blocks'.$template.'php');
+		 }
 
 	 public function load($template)
 	 {
