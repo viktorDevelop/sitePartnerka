@@ -17,6 +17,7 @@ return [
 
 
 '^$'=>['controller'=>'category','action'=>'index'],
+'^category/(?P<alias>[a-z-0-9]+)/?$'=>['controller'=>'category','action'=>'ListArticle'],
 // '^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$'=>'',
 
 		];
