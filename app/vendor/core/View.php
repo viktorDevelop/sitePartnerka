@@ -44,7 +44,7 @@ class View {
 
 	 	 ob_start();
 
-	 	 include ROOT."/app/view/templates/".$template.'.php';
+	 	 include ROOT."/app/view/templates/".$template;
 	 	 $content = ob_get_contents();
 
 	 		ob_end_clean();
@@ -54,11 +54,13 @@ class View {
 
 	  public function loadComponents($template)
 		 {
-		 	 echo $this->render('/blog/blocks'.$template.'php');
+		 	 return    $this->render('/blog/blocks/'.$template.'.php');
 		 }
 
 	 public function load($template)
 	 {
-	 	 echo $this->render($template);
+	 	 // echo $this->render($template.'/index.php');
+	 		 	 echo $this->render($template);
+
 	 }
 }
