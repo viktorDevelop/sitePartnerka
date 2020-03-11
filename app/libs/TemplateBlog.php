@@ -9,6 +9,7 @@ class TemplateBlog
 	private $view;
 	public $dataView = [];
 	private $classLoad;
+	private $pages = "index";
 
 	function __construct()
 	{
@@ -22,7 +23,11 @@ class TemplateBlog
 	{
 		$this->view->asideMenu =  $this->getDataMenuAside();
 		$this->view->view =  $this->getDataView();
-		 $this->view->load('blog/index.php'); 
+		$this->view->title = $this->getHead('title');
+		$this->view->keyword = $this->getHead('keyword');
+		$this->view->description = $this->getHead('description');
+
+		$this->view->load('blog/index.php'); 
 	}
 
 
@@ -33,7 +38,7 @@ class TemplateBlog
 		 $this->view->arResult = $this->dataView;
 		 $this->view->error = "Данная страница была удалена или  у вас нет прав";
 		 
-		return 	$this->view->render('/blog/pages/index_view.php');
+		return 	$this->view->render('/blog/pages/'.$this->pages.'_view.php');
 	}
 
 	private function getDataMenuAside()
@@ -44,6 +49,17 @@ class TemplateBlog
 			return 	$this->view->render('/blog/blocks/asideMenu.php');
  
 		}
+	public function SetPages($value='')
+	{
+		 if (!empty($value)) {
+		 		$this->pages = $value;
+		 }
+	}
+
+	private function getHead($value)
+	{
+		 
+	}
 
 }
  
