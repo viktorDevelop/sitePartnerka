@@ -1,6 +1,7 @@
 <?
 namespace app\controllers;
 use app\controllers\FrontController;
+use app\libs\TemplateBlog;
 defined('_access') or exit;
 
 /**
@@ -16,9 +17,19 @@ class ArticleController extends FrontController
 		# code...
 	}
 //http://site.ru/article/php-title
-	public function actionArticle($value='')
+	public function actionArticle()
 	{
-		 
+		//  $articleModels = $this->classLoad->models("articleModels");
+		// $TemplateBlog = new TemplateBlog;
+
+		//  $template->dataView = $articleModels->getArticleByTitle($this->routeParam);
+		//  $template->render();
+
+		  $categoryModels = $this->classLoad->models("ArticleModels");
+		 $template = new TemplateBlog;
+		 $template->dataView = $categoryModels->getArticleByTitle($this->routeParam);
+		 $template->SetPages('article');
+		 $template->render();
 	}
 
 //http://site.ru/admin/article/php
