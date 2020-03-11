@@ -64,7 +64,8 @@ class Router
 
 		 	if ($this->matchRoute()) {
 		 		//var_dump($this->route);
-		 	  $controller = 'app\controllers\\'.$this->route['prefix'].
+		 	  // $controller = 'app\controllers\\'.$this->route['prefix'].
+		 		 $controller = 'app\controllers\\'.
 	 	  					$this->upperCamelCase($this->route['controller']).'Controller' ;
 	 	  		 
 		 		  $action = 'action'.$this->upperCamelCase($this->route['action']);

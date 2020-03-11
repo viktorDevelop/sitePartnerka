@@ -17,7 +17,8 @@ class CategoryController extends FrontController
 	{
 		 
 		 $categoryModels = $this->classLoad->models("categoryModels");
-		 $template = new TemplateBlog;
+		  
+		 $template =  $this->classLoad->libs("TemplateBlog");
 		 $template->dataView = $categoryModels->getArticleIndex();
 		 $template->render();
 		
@@ -28,7 +29,7 @@ class CategoryController extends FrontController
 		 
 	 	 
 		 $categoryModels = $this->classLoad->models("categoryModels");
-		 $template = new TemplateBlog;
+		 $template = $this->classLoad->libs("TemplateBlog");
 		 $template->dataView = $categoryModels->getArticleByCategory($this->routeParam);
 		 $template->render();
 		 
@@ -38,7 +39,7 @@ class CategoryController extends FrontController
 
 //http://site.ru/admin/category/add
 
-	public function actionAdd($value='')
+	public function actionAddForm($value='')
 	{
 		 
 	}

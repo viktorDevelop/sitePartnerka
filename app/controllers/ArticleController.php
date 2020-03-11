@@ -26,7 +26,7 @@ class ArticleController extends FrontController
 		//  $template->render();
 
 		  $categoryModels = $this->classLoad->models("ArticleModels");
-		 $template = new TemplateBlog;
+		 $template = $this->classLoad->libs("TemplateBlog");
 		 $template->dataView = $categoryModels->getArticleByTitle($this->routeParam);
 		 $template->SetPages('article');
 		 $template->render();

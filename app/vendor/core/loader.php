@@ -58,7 +58,7 @@ class Loader
 
 	 public function libs ($className)
 	 {
- 			$obj =  'app\vendor\libs\\'.$className;
+ 			$obj =  'app\libs\\'.$className;
  			$obj = new $obj;
 	 	  	return $obj;
 	 	  
