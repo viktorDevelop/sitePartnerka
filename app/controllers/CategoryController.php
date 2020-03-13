@@ -16,7 +16,7 @@ class CategoryController extends FrontController
 	public function actionIndex()
 	{
 		 
-		 $categoryModels = $this->classLoad->models("categoryModels");
+		 $categoryModels = $this->classLoad->models("ArticleModels");
 		  
 		 $template =  $this->classLoad->libs("TemplateBlog");
 		 $template->dataView = $categoryModels->getArticleIndex();
@@ -28,11 +28,23 @@ class CategoryController extends FrontController
 	{
 		 
 	 	 
-		 $categoryModels = $this->classLoad->models("categoryModels");
+		 $categoryModels = $this->classLoad->models("ArticleModels");
 		 $template = $this->classLoad->libs("TemplateBlog");
 		 $template->dataView = $categoryModels->getArticleByCategory($this->routeParam);
 		 $template->render();
 		 
+	}
+
+
+//http://site.ru/admin/category/list
+
+	public function actionList()
+	{
+		$categoryModels = $this->classLoad->models("categoryModels");
+		$template = $this->classLoad->libs('TemplateAdmin'); 
+		$template->dataView = $categoryModels->getCategory();
+		$template->setPages('listCategory');
+		$template->render(); 
 	}
 
  
@@ -41,7 +53,9 @@ class CategoryController extends FrontController
 
 	public function actionAddForm($value='')
 	{
-		 
+		$template = $this->classLoad->libs('TemplateAdmin'); 
+		$template->setPages('addFormCategory');
+		 $template->render(); 
 	}
 //http://site.ru/admin/category/edite
 

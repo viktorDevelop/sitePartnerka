@@ -4,7 +4,7 @@ namespace app\libs;
 use app\vendor\core\View;
 use app\vendor\core\loader; 
 
-class TemplateBlog  
+class TemplateAdmin  
 {
 	private $view;
 	public $dataView = [];
@@ -27,7 +27,7 @@ class TemplateBlog
 		$this->view->keyword = $this->getHead('keyword');
 		$this->view->description = $this->getHead('description');
 
-		$this->view->load('blog/index.php'); 
+		$this->view->load('admin/index.php'); 
 	}
 
 
@@ -38,15 +38,12 @@ class TemplateBlog
 		 $this->view->arResult = $this->dataView;
 		 $this->view->error = "Данная страница была удалена или  у вас нет прав";
 		 
-		return 	$this->view->render('/blog/pages/'.$this->pages.'_view.php');
+		return 	$this->view->render('/admin/pages/'.$this->pages.'_view.php');
 	}
 
 	private function getDataMenuAside()
 		{
-			 $this->view->arResult =  $this->classLoad->models('categoryModels')->getCategory();
-			  
-
-			return 	$this->view->render('/blog/blocks/asideMenu.php');
+			 
  
 		}
 	public function SetPages($value='')

@@ -15,6 +15,10 @@ class DB
 	 protected function __wakeup(){}
 
 	 
+	 public function __set($k,$v)
+	 {
+	 	 $this->data[$k]=$v;
+	 }
 
 	 
    public static function getInstance()
@@ -97,7 +101,48 @@ class DB
 		return  $this->sth->rowCount();
 	}
 
-	 
+	 public function insert()
+		{
+			$cols = array_keys($this->data);
+			 $ins = [];
+			$data = [];
+			 //var_dump($this->db->data);
+			foreach ($cols as $key) {
+				 $ins[] = ":".$key;
+				 $data[':'. $key] = $this->data[$key];
+			}
+			 
+
+		echo	 $sql = "INSERT INTO  ". static::$table . "
+			 				 (". implode(',', $cols).")
+			 				 VALUES 
+			 				 (".implode(',', $ins).")"; 
+			 
+			 
+		}
+
+	public function update()
+		{
+			 $cols = array_keys($this->data);
+
+			 foreach ($cols as $key) {
+				  
+				 $data[':'.$key] = $this->data[$key];
+				$up[] = $key.'=:'.$key;
+
+			 	 
+			}
+	 		
+			 $sql = "UPDATE " .static::getTable(). " SET  ".implode(',', $up). " WHERE id = :id";
+		  
+
+		}
+	public function delete()
+		{
+			 $sql = "DELETE FROM ".static::getTable()." WHERE id = :id";
+			 
+			 $this->db->execute($sql,[':id'=>$this->data['id']]);
+		}
 	 
 	 
 }
