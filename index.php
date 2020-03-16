@@ -19,7 +19,8 @@ namespace app;
  new errorHandle;
 $router = new Router;
 $router->run();
- 
+  // git push -u origin master
+// $ git remote add origin https://github.com/viktorDevelop/sitePartnerka.git
 
 
 
